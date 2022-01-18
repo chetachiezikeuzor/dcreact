@@ -3,7 +3,7 @@ import React, { Component } from "react";
 export default class State extends Component {
   constructor() {
     super();
-    this.state = { color: true };
+    this.state = { color: "black" };
   }
   render() {
     const colortest = this.state.color ? (
@@ -15,8 +15,16 @@ export default class State extends Component {
 
     return (
       <div>
-        <h2>Green Color</h2>
+        <h2 style={{ color: this.state.color }}>Green Color</h2>
         {colortest}
+
+        <button
+          onClick={(e) => {
+            this.setState({ color: "green" });
+          }}
+        >
+          change
+        </button>
       </div>
     );
   }
